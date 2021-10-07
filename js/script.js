@@ -1,18 +1,19 @@
+import calc from './modules/calc'
+import cards from './modules/cards'
+import modal from './modules/modal'
+import slider from './modules/slider'
+import tabs from './modules/tabs'
+import timer from './modules/timer'
+import forms from './modules/forms'
+
 document.addEventListener('DOMContentLoaded', () =>{
-    const calc = require('./modules/calc'),
-          cards = require('./modules/cards'),
-          modal = require('./modules/modal'),
-          slider = require('./modules/slider'),
-          tabs = require('./modules/tabs'),
-          timer = require('./modules/timer')
-
-
-    calc()
+    forms('form', '.modal')
     cards()
-    modal()
+    modal('[data-btn]', '.modal')
     slider()
-    tabs()
-    timer()
+    tabs('.tabcontent', '.tabheader__items .tabheader__item', 'tabheader__item_active')
+    timer('.timer', '2022-01-01')
+    calc()
 })
 
 

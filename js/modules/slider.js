@@ -2,9 +2,9 @@ function slider(){
     //slides
     let slideIndex = 1,
         offset = 0
-
+        
     const slides = document.querySelectorAll('.offer__slide'),
-            slider = document.querySelector('.offer__slider-inner')
+            slider = document.querySelector('.offer__slider-inner'),
             prev = document.querySelector('.offer__slider-prev'),
             next = document.querySelector('.offer__slider-next'),
             total = document.querySelector('#total'),
@@ -91,4 +91,4 @@ function slider(){
 }
 
 
-module.exports = slider
+export default slider

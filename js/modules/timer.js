@@ -1,9 +1,9 @@
-function timer(){
+function timer(id, deadline){
     
     //timer
     function getTimeRemaining(endTime){
-        t = Date.parse(endTime) - Date.parse(new Date())
-        let days = Math.floor(t/(1000*60*60*24)),
+        let t = Date.parse(endTime) - Date.parse(new Date()),
+             days = Math.floor(t/(1000*60*60*24)),
             hours = Math.floor((t/(1000*60*60))%24),
             minutes = Math.floor((t/(1000*60))%60),
             seconds = Math.floor((t/(1000))%60)
@@ -24,10 +24,10 @@ function timer(){
             seconds = timer.querySelector('#seconds')
             
         updateClock()   
-        timeInterval = setInterval(updateClock, 1000)
+        const timeInterval = setInterval(updateClock, 1000)
         
         function updateClock(){
-            t = getTimeRemaining(endTime)
+            let t = getTimeRemaining(endTime)
             days.textContent = t.days
             hours.textContent = t.hours
             minutes.textContent = t.minutes
@@ -40,9 +40,7 @@ function timer(){
         
     }
     
-    
-    deadline = '2022-01-01'
-    setClock('.timer', deadline)
+    setClock(id, deadline)
 }
 
-module.exports = timer
+export default timer

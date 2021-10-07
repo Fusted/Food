@@ -55,7 +55,8 @@ function calc(){
 
     
     function getDynamicInformation(id, par){
-        element = document.querySelector(id)
+        
+        const element = document.querySelector(id)
         element.addEventListener('input', e => {
             if (e.target.value.match(/\D/g)){
                 e.target.style.border = '1px solid red'
@@ -84,4 +85,4 @@ function calc(){
     }
 }
 
-module.exports = calc
+export default calc
