@@ -40,7 +40,7 @@ function modal(bttnModal, modalTrigger){
       }
    });
 
-   const startModalId = setTimeout(() => openModal(modalTrigger), 3000)
+   const startModalId = setTimeout(() => openModal(modalTrigger), 15000)
 
    function showModalByScroll(){
       if (document.documentElement.scrollTop + document.documentElement.clientHeight >= document.documentElement.scrollHeight){

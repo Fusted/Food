@@ -171,7 +171,6 @@ function calc(){
             
             return
         } else {
-            console.log('flag')
             if (person.gender == 'female'){
                 bmr  = (88.36 + (13.4 * person.weight) + (4.8 * person.height) - (5.7 * person.age) * person.activity)
             } else {
@@ -342,100 +341,7 @@ function forms(formSelector, modalTrigger) {
 
 
 
-/*
-  const forms = document.querySelectorAll('form');
-    const message = {
-        loading: 'img/form/spinner.svg',
-        success: 'Спасибо! Скоро мы с вами свяжемся',
-        failure: 'Что-то пошло не так...'
-    };
 
-    forms.forEach(item => {
-        bindPostData(item);
-    });
-
-    const postData = async (url, data) => {
-        let res = await fetch(url, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: data
-        });
-    
-        return await res.json();
-    };
-
-
-
-    function bindPostData(form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            let statusMessage = document.createElement('img');
-            statusMessage.src = message.loading;
-            statusMessage.style.cssText = `
-                display: block;
-                margin: 0 auto;
-            `;
-            form.insertAdjacentElement('afterend', statusMessage);
-        
-            const formData = new FormData(form);
-
-            const json = JSON.stringify(Object.fromEntries(formData.entries()));
-
-            postData('http://localhost:3000/requests', json)
-            .then(data => {
-                console.log(data);
-                showThanksModal(message.success);
-                statusMessage.remove();
-            }).catch(() => {
-                showThanksModal(message.failure);
-            }).finally(() => {
-                form.reset();
-            });
-        });
-    }
-
-    function showThanksModal(message) {
-        const prevModalDialog = document.querySelector('.modal__dialog');
-
-        prevModalDialog.classList.add('hide');
-        openModal();
-
-        const thanksModal = document.createElement('div');
-        thanksModal.classList.add('modal__dialog');
-        thanksModal.innerHTML = `
-            <div class="modal__content">
-                <div class="modal__close" data-close>×</div>
-                <div class="modal__title">${message}</div>
-            </div>
-        `;
-        document.querySelector('.modal').append(thanksModal);
-        setTimeout(() => {
-            thanksModal.remove();
-            prevModalDialog.classList.add('show');
-            prevModalDialog.classList.remove('hide');
-            closeModal();
-        }, 4000);
-    }
-    const formData = new FormData(form) //
-            
-    const json = JSON.stringify(Object.fromEntries(formData.entries()))
-    
-
-    form.insertAdjacentElement('afterend', statusMessege)
-
-    postData('http://localhost:3000/requests', json)
-    .then((data) => {
-        openModal()
-        showThanksModal(message.success)
-    }).catch(() => {
-        showThanksModal(message.failure)
-    }).finally(() => {
-        form.reset()
-    })
-*/
 
 /***/ }),
 
@@ -492,7 +398,7 @@ function modal(bttnModal, modalTrigger){
       }
    });
 
-   const startModalId = setTimeout(() => openModal(modalTrigger), 3000)
+   const startModalId = setTimeout(() => openModal(modalTrigger), 15000)
 
    function showModalByScroll(){
       if (document.documentElement.scrollTop + document.documentElement.clientHeight >= document.documentElement.scrollHeight){
@@ -744,10 +650,10 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener('DOMContentLoaded', () =>{
     Object(_modules_forms__WEBPACK_IMPORTED_MODULE_6__["default"])('form', '.modal')
     Object(_modules_cards__WEBPACK_IMPORTED_MODULE_1__["default"])()
-   // modal('[data-btn]', '.modal')
+    Object(_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])('[data-btn]', '.modal')
     Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])()
     Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_4__["default"])('.tabcontent', '.tabheader__items .tabheader__item', 'tabheader__item_active')
-   // timer('.timer', '2022-01-01')
+    Object(_modules_timer__WEBPACK_IMPORTED_MODULE_5__["default"])('.timer', '2022-01-01')
     Object(_modules_calc__WEBPACK_IMPORTED_MODULE_0__["default"])()
 })
 
@@ -783,7 +689,7 @@ const postData = (async (url, data) => {
     return await res.json()
 })
 
-const getResourses = (async (url) => {
+async function getResourses(url) {
     const res = await fetch(url)
 
     if(!res){
@@ -791,7 +697,7 @@ const getResourses = (async (url) => {
     }
 
     return await res.json()
-})
+}
 
 
 

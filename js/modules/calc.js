@@ -74,7 +74,6 @@ function calc(){
             
             return
         } else {
-            console.log('flag')
             if (person.gender == 'female'){
                 bmr  = (88.36 + (13.4 * person.weight) + (4.8 * person.height) - (5.7 * person.age) * person.activity)
             } else {
